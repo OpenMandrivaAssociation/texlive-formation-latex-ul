@@ -1,5 +1,5 @@
 Name:		texlive-formation-latex-ul
-Version:	68791
+Version:	70507
 Release:	1
 Summary:	Introductory LaTeX course in French
 Group:		Publishing
