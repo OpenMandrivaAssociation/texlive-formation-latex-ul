@@ -3,7 +3,7 @@ Version:	70507
 Release:	1
 Summary:	Introductory LaTeX course in French
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/formation-latex-ul
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/formation-latex-ul
 License:	cc-by-4
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.doc.r%{version}.tar.xz
