@@ -1,39 +1,25 @@
-Name:		texlive-formation-latex-ul
-Version:	70507
-Release:	1
+%global tl_name formation-latex-ul
+%global tl_revision 70507
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2024.03
+Release:	%{tl_revision}.1
 Summary:	Introductory LaTeX course in French
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/formation-latex-ul
+URL:		https://www.ctan.org/tex-archive/info/formation-latex-ul
 License:	cc-by-4
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/formation-latex-ul.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package contains the supporting documentation, slides,
-exercise files, and templates for an introductory LaTeX course
-(in French) prepared for Universite Laval, Quebec, Canada.
+This package contains the supporting documentation, slides, exercise
+files, and templates for an introductory LaTeX course (in French)
+prepared for Universite Laval, Quebec, Canada.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/formation-latex-ul
-%doc %{_texmfdistdir}/doc/latex/formation-latex-ul
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
